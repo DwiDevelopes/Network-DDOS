@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelacakan Nomor Telepon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pelacakan Nomor Telepon</h1>
+        <input type="text" id="phoneNumber" placeholder="Masukkan nomor telepon (contoh: 08123456789)">
+        <button onclick="trackNumber()">Lacak</button>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    }
+    
+    input[type="text"] {
+        padding: 10px;
+        width: 80%;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+    
+    #result {
+        margin-top: 20px;
+        font-size: 16px;
+        text-align: left;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+</style>
+<script>
+function trackNumber() {
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const resultElement = document.getElementById('result');
+    
+    // Contoh pola nomor telepon
+    const patterns = {
+        '0812': 'Telkomsel',
+        '0813': 'Telkomsel',
+        '0814': 'Indosat',
+        '0815': 'Indosat',
+        '0816': 'XL',
+        '0817': 'XL',
+        '0818': 'XL',
+        '0819': 'XL',
+        '0821': 'Telkomsel',
+        '0822': 'Telkomsel',
+        '0823': 'Telkomsel',
+        '0852': 'Telkomsel',
+        '0853': 'Telkomsel',
+        '0855': 'Indosat',
+        '0856': 'Indosat',
+        '0857': 'Indosat',
+        '0858': 'Indosat',
+        '0877': 'XL',
+        '0878': 'XL',
+        '0881': 'Smartfren',
+        '0882': 'Smartfren',
+        '0883': 'Smartfren',
+        '0884': 'Smartfren',
+        '0885': 'Smartfren',
+        '0886': 'Smartfren',
+        '0887': 'Smartfren',
+        '0888': 'Smartfren',
+        '0889': 'Smartfren',
+        '0895': 'Three',
+        '0896': 'Three',
+        '0897': 'Three',
+        '0898': 'Three',
+        '0899': 'Three'
+    };
+
+    const prefix = phoneNumber.substring(0, 4);
+    const operator = patterns[prefix];
+
+    if (operator) {
+        resultElement.textContent = `Nomor telepon ${phoneNumber} adalah operator ${operator}.`;
+    } else {
+        resultElement.textContent = `Operator untuk nomor telepon ${phoneNumber} tidak dikenali.`;
+    }
+
+    // Predefined location without requiring privacy
+    const predefinedLat = -6.1751;  // Example: Jakarta, Indonesia latitude
+    const predefinedLon = 106.8650; // Example: Jakarta, Indonesia longitude
+
+    resultElement.innerHTML += `<br>Lokasi yang ditampilkan: Latitude: ${predefinedLat}, Longitude: ${predefinedLon}.`;
+
+    // Optionally, you can display the location on Google Maps
+    const mapUrl = `https://www.google.com/maps?q=${predefinedLat},${predefinedLon}&hl=en`;
+    resultElement.innerHTML += `<br><a href="${mapUrl}" target="_blank">Lihat Lokasi di Google Maps</a>`;
+}
+
+</script>
