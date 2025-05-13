@@ -22,7 +22,7 @@ Website ini dibuat untuk tujuan edukasi mengenai serangan Distributed Denial of 
 
 ## Ilustrasi Serangan DDoS
 
-![Ilustrasi Serangan DDoS](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/DDoS_Attack.svg/1200px-DDoS_Attack.svg.png)
+<img src ="https://csirt.bpbatam.go.id/storage/post-image/pSnnPDx0gB4Jhz2txvKfLQ2uqHj8M4hNEbQzhb7k.png">
 
 *Gambar: Banyak komputer (botnet) menyerang satu server secara bersamaan.*
 
